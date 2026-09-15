@@ -10,6 +10,168 @@
   
   <!-- Iconos Lucide -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at top, rgba(240, 177, 75, 0.12), transparent 36%);
+      z-index: 0;
+    }
+
+    .menu-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      animation: menuReveal 0.8s ease-out forwards;
+    }
+
+    .menu-reveal:nth-child(2) { animation-delay: 0.1s; }
+    .menu-reveal:nth-child(3) { animation-delay: 0.2s; }
+    .menu-reveal:nth-child(4) { animation-delay: 0.3s; }
+    .menu-reveal:nth-child(5) { animation-delay: 0.4s; }
+    .menu-reveal:nth-child(6) { animation-delay: 0.5s; }
+
+    .menu-image-wrap {
+      overflow: hidden;
+      border-radius: 0.75rem;
+      border: 1px solid #d4a449;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.2rem;
+      color: #d1d1d1;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.2rem;
+      color: #d1d1d1;
+      transition: color 0.18s ease-out;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -0.35rem;
+      width: 28%;
+      height: 2px;
+      background: linear-gradient(90deg, #f0b14b, #d99a2c);
+      border-radius: 999px;
+      opacity: 0;
+      transition: left 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.active {
+      color: #f0b14b;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after,
+    .nav-link.active::after {
+      opacity: 1;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .menu-image {
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      transform: scale(1.12);
+      opacity: 0.9;
+      transition: transform 0.9s ease, opacity 0.9s ease, filter 0.9s ease;
+      will-change: transform;
+    }
+
+    .menu-reveal .menu-image {
+      animation: menuImageZoom 1s ease-out forwards;
+    }
+
+    .menu-image-wrap:hover .menu-image {
+      transform: scale(1.12);
+      opacity: 1;
+      filter: saturate(1.1);
+    }
+
+    .glow-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(240,177,75,0.04));
+    }
+
+    .glow-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(240,177,75,0.22), transparent 30%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .glow-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(240,177,75,0.12);
+      border-color: rgba(240,177,75,0.5);
+    }
+
+    .glow-card:hover::before {
+      opacity: 1;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes menuReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes menuImageZoom {
+      0% {
+        opacity: 0.55;
+        transform: scale(1.18);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body class="bg-black text-[#f5f5f5] font-sans antialiased">
 
@@ -22,10 +184,11 @@
       
       <!-- Menú Desktop -->
       <nav class="hidden md:flex gap-8 font-medium text-[#d1d1d1]">
-        <a href="#servicios" class="hover:text-[#f0b14b] transition-colors">Servicios</a>
-        <a href="#galeria" class="hover:text-[#f0b14b] transition-colors">Galería</a>
-        <a href="#nosotros" class="hover:text-[#f0b14b] transition-colors">Nosotros</a>
-        <a href="#contacto" class="hover:text-[#f0b14b] transition-colors">Contacto</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#menu" class="nav-link">Menú</a>
+        <a href="#galeria" class="nav-link">Galería</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
       </nav>
 
       <a href="#contacto" class="hidden md:inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-5 py-2.5 rounded-full font-semibold text-sm transition-colors shadow-md hover:shadow-[#f0b14b]/20">
@@ -40,10 +203,11 @@
 
     <!-- Menú Desplegable Móvil -->
     <div id="mobile-menu" class="hidden md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 space-y-3">
-      <a href="#servicios" class="block text-[#d1d1d1] font-medium hover:text-[#f0b14b]">Servicios</a>
-      <a href="#galeria" class="block text-[#d1d1d1] font-medium hover:text-[#f0b14b]">Galería</a>
-      <a href="#nosotros" class="block text-[#d1d1d1] font-medium hover:text-[#f0b14b]">Nosotros</a>
-      <a href="#contacto" class="block text-[#d1d1d1] font-medium hover:text-[#f0b14b]">Contacto</a>
+      <a href="#servicios" class="nav-link block font-medium">Servicios</a>
+      <a href="#menu" class="nav-link block font-medium">Menú</a>
+      <a href="#galeria" class="nav-link block font-medium">Galería</a>
+      <a href="#nosotros" class="nav-link block font-medium">Nosotros</a>
+      <a href="#contacto" class="nav-link block font-medium">Contacto</a>
     </div>
   </header>
 
@@ -53,7 +217,7 @@
     <div class="relative max-w-3xl mx-auto z-10">
       <span class="text-[#f0b14b] font-semibold uppercase tracking-widest text-xs mb-3 block">Gastronomía & Coctelería</span>
       <h1 class="text-4xl sm:text-6xl font-extrabold mb-6 leading-tight text-white">Experiencias Culinarias Inolvidables</h1>
-      <p class="text-[#d9d9d9] text-lg mb-8 leading-relaxed">Ofrecemos servicio de catering y cocteñería de alta gama para todo tipo de eventos, bodas y celebraciones sociales.</p>
+      <p class="text-[#d9d9d9] text-lg mb-8 leading-relaxed">Ofrecemos servicio de catering y coctelería de alta gama para todo tipo de eventos, bodas y celebraciones sociales.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="#contacto" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-8 rounded-full transition-all shadow-lg hover:shadow-amber-500/20">
           Solicitar Cotización
@@ -67,17 +231,17 @@
 
   <section class="bg-black border-b border-[#2a2a2a]">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-10">
-      <div class="text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]">
+      <div class="reveal glow-card text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]" data-animate>
         <div class="flex justify-center text-[#f0b14b] mb-3"><i data-lucide="award"></i></div>
         <h3 class="text-3xl font-extrabold text-white">6+</h3>
         <p class="text-[#d1d1d1] mt-2">Años de experiencia</p>
       </div>
-      <div class="text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]">
+      <div class="reveal glow-card text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]" data-animate>
         <div class="flex justify-center text-[#f0b14b] mb-3"><i data-lucide="users"></i></div>
         <h3 class="text-3xl font-extrabold text-white">100+</h3>
         <p class="text-[#d1d1d1] mt-2">Invitados atendidos</p>
       </div>
-      <div class="text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]">
+      <div class="reveal glow-card text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]" data-animate>
         <div class="flex justify-center text-[#f0b14b] mb-3"><i data-lucide="sparkles"></i></div>
         <h3 class="text-3xl font-extrabold text-white">4/5</h3>
         <p class="text-[#d1d1d1] mt-2">Satisfacción promedio</p>
@@ -93,7 +257,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]">
+      <div class="reveal glow-card bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]" data-animate>
         <div class="h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop" alt="Eventos Corporativos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         </div>
@@ -106,7 +270,7 @@
         </div>
       </div>
 
-      <div class="bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]">
+      <div class="reveal glow-card bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]" data-animate>
         <div class="h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Bodas y Aniversarios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         </div>
@@ -119,7 +283,7 @@
         </div>
       </div>
 
-      <div class="bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]">
+      <div class="reveal glow-card bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]" data-animate>
         <div class="h-56 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=800&auto=format&fit=crop" alt="Fiestas Privadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         </div>
@@ -134,6 +298,225 @@
     </div>
   </section>
 
+  <section id="menu" class="bg-[#0d0d0d] text-[#f5f1ea] py-20 px-6 border-y border-[#2a2a2a]">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-black text-center mb-3 tracking-tight" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">
+        Nuestra Selección de Platos
+      </h1>
+      <p class="text-center text-[#d7d0c8] text-lg mb-10 leading-relaxed">
+        Descubra nuestra variedad de opciones preparadas con ingredientes de la más alta calidad.
+      </p>
+
+      <div class="space-y-10">
+        <div class="menu-reveal">
+          <div class="bg-[#5f2b1d] text-white font-black uppercase text-xl md:text-2xl px-5 py-3 tracking-wide shadow-sm" style="font-family: Arial, Helvetica, sans-serif;">
+            Especialidades en Pollo
+          </div>
+
+          <div class="bg-[#111111] px-3 pt-5 pb-2 space-y-8 border border-[#2a2a2a]">
+            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
+              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
+                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Enrollado de Pollo</h3>
+                <p class="text-base leading-relaxed text-[#d7d0c8]">
+                  Jugosa pechuga de pollo rellena de jamón ahumado y queso fundido, acompañada de una suave salsa bechamel o champiñones.
+                </p>
+              </div>
+
+              <div class="menu-image-wrap rounded-xl shadow-md">
+                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=900&auto=format&fit=crop" alt="Enrollado de pollo" class="menu-image">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
+              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
+                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Pollo al Horno a las Finas Hierbas</h3>
+                <p class="text-base leading-relaxed text-[#d7d0c8]">
+                  Pierna o pechuga marinada en romero, orégano y especies selectas, horneada a fuego lento para garantizar su terneza.
+                </p>
+              </div>
+
+              <div class="menu-image-wrap rounded-xl shadow-md">
+                <img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?q=80&w=900&auto=format&fit=crop" alt="Pollo al horno" class="menu-image">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-reveal">
+          <div class="bg-[#5f2b1d] text-white font-black uppercase text-xl md:text-2xl px-5 py-3 tracking-wide shadow-sm" style="font-family: Arial, Helvetica, sans-serif;">
+            Carnes de Cerdo y Res
+          </div>
+
+          <div class="bg-[#111111] px-3 pt-5 pb-2 space-y-8 border border-[#2a2a2a]">
+            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
+              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
+                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Medallones de Cerdo en Salsa Agridoce</h3>
+                <p class="text-base leading-relaxed text-[#d7d0c8]">
+                  Cortes tiernos de lomo de cerdo bañados en una delicada salsa de guindones o durazno.
+                </p>
+              </div>
+
+              <div class="menu-image-wrap rounded-xl shadow-md">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop" alt="Medallones de cerdo" class="menu-image">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
+              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
+                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Asado de Pescado Tradicional</h3>
+                <p class="text-base leading-relaxed text-[#d7d0c8]">
+                  Láminas de asado de res cocidas en su propio jugo con un toque de vino tinto y especies, logrando una textura que se deshace en el paladar.
+                </p>
+              </div>
+
+              <div class="menu-image-wrap rounded-xl shadow-md">
+                <img src="asado de pescado.jpg" alt="Asado de pescado" class="menu-image">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
+              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
+                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Lomo Saltado de Fiesta</h3>
+                <p class="text-base leading-relaxed text-[#d7d0c8]">
+                  Fina carne de res salteada al wok con cebolla, tomate y nuestro aderezo especial de la casa.
+                </p>
+              </div>
+
+              <div class="menu-image-wrap rounded-xl shadow-md">
+                <img src="lomo saltado.jpg" alt="Lomo saltado" class="menu-image">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-reveal">
+          <div class="bg-[#5f2b1d] text-white font-black uppercase text-xl md:text-2xl px-5 py-3 tracking-wide shadow-sm" style="font-family: Arial, Helvetica, sans-serif;">
+            Tradición y Sabor Regional
+          </div>
+
+          <div class="bg-[#111111] px-3 pt-5 pb-2 space-y-8 border border-[#2a2a2a]">
+            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
+              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
+                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Pachamanca a la Olla</h3>
+                <p class="text-base leading-relaxed text-[#d7d0c8]">
+                  Macerado de carnes (res, cerdo y pollo) con chinchu, huacatay y especias andinas, cocido a la perfección. Acompañado de humitas, papas, camote y habas.
+                </p>
+              </div>
+
+              <div class="menu-image-wrap rounded-xl shadow-md">
+                <img src="pachamanca a la olla.jpg" alt="Pachamanca" class="menu-image">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
+              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
+                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Trucha Dorada al Ajíllo</h3>
+                <p class="text-base leading-relaxed text-[#d7d0c8]">
+                  Filete de trucha fresca bañada en una exquisita salsa de mantequilla, ajo y perejil, acompañada de papas doradas.
+                </p>
+              </div>
+
+              <div class="menu-image-wrap rounded-xl shadow-md">
+                <img src="trucha al ajillo.jpg" alt="Trucha dorada" class="menu-image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#0d0d0d] text-[#f5f1ea] py-20 px-6 border-b border-[#2a2a2a]">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-4" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">
+        Acompañamientos y Opciones de Servicio
+      </h2>
+
+      <div class="mt-10 bg-[#5f2b1d] text-white px-5 py-3 font-black uppercase text-xl tracking-wide shadow-sm" style="font-family: Arial, Helvetica, sans-serif;">
+        Guarniciones a Elegir
+      </div>
+
+      <div class="bg-[#111111] px-6 py-6 text-[#d7d0c8] text-lg leading-relaxed border border-[#2a2a2a] border-t-0 shadow-sm">
+        <p>Todos nuestros platos de fondo pueden combinarse con dos guarniciones a su elección:</p>
+        <ul class="mt-4 space-y-2 list-disc pl-6 marker:text-[#d4a449]">
+          <li>Arroz Árabe con pasas y fideos</li>
+          <li>Arroz a la jardinera / Arroz Blanco con chodo</li>
+          <li>Puré rústico de papa o manzana</li>
+          <li>Papas nativas a las finas hierbas</li>
+          <li>Ensaladas: Waldorf, Fresa de estación o Vegetales salteados en mantequilla</li>
+        </ul>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="reveal glow-card group overflow-hidden rounded-2xl border border-[#2a2a2a] shadow-sm bg-[#111111]" data-animate>
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=900&auto=format&fit=crop" alt="Arroz árabe" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="bg-[#5f2b1d] text-white px-4 py-3 font-semibold text-sm uppercase tracking-wide">Arroz Árabe</div>
+        </div>
+
+        <div class="reveal glow-card group overflow-hidden rounded-2xl border border-[#2a2a2a] shadow-sm bg-[#111111]" data-animate>
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=900&auto=format&fit=crop" alt="Papas nativas" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="bg-[#5f2b1d] text-white px-4 py-3 font-semibold text-sm uppercase tracking-wide">Papas Nativas</div>
+        </div>
+
+        <div class="reveal glow-card group overflow-hidden rounded-2xl border border-[#2a2a2a] shadow-sm bg-[#111111]" data-animate>
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=900&auto=format&fit=crop" alt="Ensalada gourmet" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="bg-[#5f2b1d] text-white px-4 py-3 font-semibold text-sm uppercase tracking-wide">Ensalada Gourmet</div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <h3 class="text-4xl md:text-5xl font-black mb-6" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">
+          Estructura de Nuestros Paquetes
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="reveal glow-card bg-[#121212] border border-[#2a2a2a] p-0 shadow-sm rounded-none" data-animate>
+          <div class="bg-[#5f2b1d] text-white font-bold text-2xl text-center py-4 border-b border-[#d9c7b0]" style="font-family: Georgia, 'Times New Roman', serif;">
+            Paquete Clásico
+          </div>
+          <div class="p-5 text-[#d7d0c8] text-lg leading-relaxed">
+            <p class="mb-3 font-semibold text-[#f0b14b]">Ideal para reuniones ágiles</p>
+            <ul class="space-y-2 list-disc pl-6 marker:text-[#d4a449]">
+              <li>1 Opción de Plato de Fondo</li>
+              <li>2 Guarniciones a elección</li>
+              <li>Menaje de loza y cubiertos de acero</li>
+              <li>Personal de servicio (Mozos)</li>
+              <li>Refrigerio (Chicha morada o Maracuyá)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="reveal glow-card bg-[#121212] border border-[#2a2a2a] p-0 shadow-sm rounded-none" data-animate>
+          <div class="bg-[#5f2b1d] text-white font-bold text-2xl text-center py-4 border-b border-[#d9c7b0]" style="font-family: Georgia, 'Times New Roman', serif;">
+            Paquete Completo
+          </div>
+          <div class="p-5 text-[#d7d0c8] text-lg leading-relaxed">
+            <p class="mb-3 font-semibold text-[#f0b14b]">La experiencia gastronómica total</p>
+            <ul class="space-y-2 list-disc pl-6 marker:text-[#d4a449]">
+              <li>Entrada (Ej. Causa, Papa a la Huancaína)</li>
+              <li>1 Opción de Plato de Fondo</li>
+              <li>2 Guarniciones a elección</li>
+              <li>Menaje completo de loza y cristalería</li>
+              <li>Personal de servicio (Mozos)</li>
+              <li>Bebida ilimitada durante la cena</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-[#171717] text-[#f5f1ea] px-5 py-4 text-center text-base leading-relaxed border border-[#d4a449]">
+        Condiciones del servicio: Cotizaciones personalizadas según el número de invitados y requisitos especiales. Se requiere una anticipación mínima para confirmar fechas. Los precios pueden variar según la temporada de los insumos.
+      </div>
+    </div>
+  </section>
+
   <section id="galeria" class="bg-black text-white py-20 px-6 border-y border-[#2a2a2a]">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-12">
@@ -142,10 +525,10 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <img src="1.jpeg" alt="Evento catering 1" class="h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300">
-        <img src="2.jpeg" alt="Evento catering 2" class="h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300">
-        <img src="3.jpeg" alt="Evento catering 3" class="h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300">
-        <img src="chapay.jpeg" alt="Evento catering 4" class="h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300">
+        <img src="1.jpeg" alt="Evento catering 1" class="reveal glow-card h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300" data-animate>
+        <img src="2.jpeg" alt="Evento catering 2" class="reveal glow-card h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300" data-animate>
+        <img src="3.jpeg" alt="Evento catering 3" class="reveal glow-card h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300" data-animate>
+        <img src="chapay.jpeg" alt="Evento catering 4" class="reveal glow-card h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300" data-animate>
       </div>
     </div>
   </section>
@@ -186,6 +569,44 @@
           <li class="flex gap-3"><span class="text-[#5cd688] mt-1"><i data-lucide="check-circle"></i></span> Propuesta según el tipo de evento y presupuesto</li>
           <li class="flex gap-3"><span class="text-[#5cd688] mt-1"><i data-lucide="check-circle"></i></span> Atención ágil y servicio profesional</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#0d0d0d] py-20 px-6 border-y border-[#2a2a2a]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-sm uppercase tracking-[0.2em] text-[#f0b14b] font-semibold">Testimonios</span>
+        <h2 class="text-3xl font-bold text-white mt-4 mb-3">Lo que dicen nuestros clientes</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="reveal glow-card bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6" data-animate>
+          <div class="text-[#f0b14b] mb-3 flex gap-1">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="text-[#d1d1d1] leading-relaxed mb-5">“La atención fue impecable y la comida superó todas nuestras expectativas. Todo quedó hermoso y con un sabor increíble.”</p>
+          <div class="font-bold text-white">María R.</div>
+          <div class="text-sm text-[#f0b14b]">Boda</div>
+        </div>
+
+        <div class="reveal glow-card bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6" data-animate>
+          <div class="text-[#f0b14b] mb-3 flex gap-1">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="text-[#d1d1d1] leading-relaxed mb-5">“Trabajaron con precisión y profesionalismo. El servicio para nuestra reunión corporativa fue de nivel premium.”</p>
+          <div class="font-bold text-white">Jorge P.</div>
+          <div class="text-sm text-[#f0b14b]">Evento corporativo</div>
+        </div>
+
+        <div class="reveal glow-card bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6" data-animate>
+          <div class="text-[#f0b14b] mb-3 flex gap-1">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="text-[#d1d1d1] leading-relaxed mb-5">“Todo fue muy organizado, desde la propuesta hasta la ejecución. Mejoraron la experiencia de nuestra celebración.”</p>
+          <div class="font-bold text-white">Sofía V.</div>
+          <div class="text-sm text-[#f0b14b]">Fiesta privada</div>
+        </div>
       </div>
     </div>
   </section>
@@ -243,11 +664,16 @@
       <p>© 2026 Chapay • Catering & Banquetería</p>
       <div class="flex items-center gap-4">
         <a href="#servicios" class="hover:text-[#f0b14b]">Servicios</a>
+        <a href="#menu" class="hover:text-[#f0b14b]">Menú</a>
         <a href="#galeria" class="hover:text-[#f0b14b]">Galería</a>
         <a href="#contacto" class="hover:text-[#f0b14b]">Contacto</a>
       </div>
     </div>
   </footer>
+
+  <a href="https://wa.me/51973183848" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" class="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:scale-105 transition-transform">
+    <i data-lucide="message-circle-more"></i>
+  </a>
 
   <script src="js/main.js"></script>
 </body>
