@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú | Chapay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #f5f1ea;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.2rem;
+      color: #d1d1d1;
+      transition: color 0.18s ease-out;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -0.35rem;
+      width: 28%;
+      height: 2px;
+      background: linear-gradient(90deg, #f0b14b, #d99a2c);
+      border-radius: 999px;
+      opacity: 0;
+      transition: left 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.active {
+      color: #f0b14b;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after,
+    .nav-link.active::after {
+      opacity: 1;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 767px) {
+      .nav-link {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+      }
+
+      .nav-link::after {
+        left: 0.15rem;
+        top: 50%;
+        bottom: auto;
+        width: 3px;
+        height: 0;
+        opacity: 0;
+        transform: translateY(-50%);
+        border-radius: 999px;
+      }
+
+      .nav-link:hover::after,
+      .nav-link:focus-visible::after,
+      .nav-link.active::after {
+        left: 0.15rem;
+        top: 50%;
+        width: 3px;
+        height: 1.5rem;
+        opacity: 1;
+        transform: translateY(-50%);
+      }
+    }
+
+    .mobile-menu-toggle {
+      width: 52px;
+      height: 52px;
+      border-radius: 9999px;
+      border: 1px solid rgba(240, 177, 75, 0.8);
+      background: rgba(255,255,255,0.03);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 0 0 rgba(240,177,75,0.2);
+    }
+
+    .mobile-menu-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.2;
+    }
+
+    .mobile-menu-toggle.is-open {
+      background: rgba(240,177,75,0.14);
+      box-shadow: 0 0 0 6px rgba(240,177,75,0.08);
+      border-color: rgba(240,177,75,1);
+    }
+
+    .menu-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .menu-showcase {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.2rem 2rem;
+      align-items: start;
+    }
+
+    .menu-section {
+      margin-top: 3.5rem;
+    }
+
+    .menu-section-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+      color: #f0b14b;
+      font-size: 0.78rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .menu-section-header::before,
+    .menu-section-header::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(240,177,75,0.9), transparent);
+    }
+
+    .dish-card {
+      background: rgba(0, 0, 0, 0.72);
+      border: 1px solid rgba(240, 177, 75, 0.8);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.22), 0 0 0 1px rgba(240,177,75,0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .dish-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 26px 48px rgba(240,177,75,0.12);
+    }
+
+    .dish-thumb {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      background: #111;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .dish-body {
+      padding: 1.6rem 1.5rem 1.9rem;
+    }
+
+    .dish-title {
+      margin: 0;
+      color: #f5f1ea;
+      font-size: clamp(2.4rem, 2.6vw, 3.2rem);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .dish-summary {
+      margin: 1rem 0 0;
+      color: #d1d1d1;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 92%;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    @media (max-width: 768px) {
+      .menu-showcase {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .dish-thumb {
+        height: 340px;
+      }
+
+      .dish-title {
+        font-size: 2.3rem;
+      }
+
+      .dish-summary {
+        font-size: 1rem;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md shadow-sm border-b border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 min-w-0 shrink-0">
+        <img src="chapay.jpeg" alt="Chapay logo" class="h-20 sm:h-24 md:h-28 w-auto max-w-[240px] object-contain rounded-full shadow-sm border border-[#d4a449] bg-[#101010]">
+      </a>
+
+      <nav class="hidden md:flex gap-8 font-medium text-[#d1d1d1]">
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="menu.html" class="nav-link active">Menú</a>
+        <a href="cocteles.html" class="nav-link">Cócteles</a>
+        <a href="galeria.html" class="nav-link">Galería</a>
+        <a href="nosotros.html" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="contacto.html" class="hidden md:inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-5 py-2.5 rounded-full font-semibold text-sm transition-colors shadow-md hover:shadow-[#f0b14b]/20">Cotizar Ahora</a>
+
+      <button id="mobile-menu-btn" class="mobile-menu-toggle md:hidden text-[#f5f5f5]" aria-label="Abrir menú">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 space-y-3">
+      <a href="servicios.html" class="nav-link block font-medium">Servicios</a>
+      <a href="menu.html" class="nav-link block font-medium active">Menú</a>
+      <a href="cocteles.html" class="nav-link block font-medium">Cócteles</a>
+      <a href="galeria.html" class="nav-link block font-medium">Galería</a>
+      <a href="nosotros.html" class="nav-link block font-medium">Nosotros</a>
+      <a href="contacto.html" class="nav-link block font-medium">Contacto</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <div class="menu-shell">
+      <div class="text-center max-w-5xl mx-auto mb-12">
+        <div class="inline-flex items-center justify-center gap-4 mb-5">
+          <span class="h-px w-16 bg-gradient-to-r from-transparent to-[#f0b14b]"></span>
+          <span class="inline-flex items-center gap-2 text-[#f0b14b] text-sm md:text-base uppercase tracking-[0.25em] font-semibold">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+            Menú
+          </span>
+          <span class="h-px w-16 bg-gradient-to-l from-transparent to-[#f0b14b]"></span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-black leading-none tracking-[-0.05em] mb-5">
+          <span class="inline-block text-[#f5f1ea] italic font-serif">Nuestra</span>
+          <span class="inline-block text-[#f0b14b] italic font-serif ml-2 md:ml-4">selección</span>
+          <span class="block text-[#f5f1ea] italic font-serif mt-2">de sabores</span>
+        </h1>
+
+        <p class="text-[#d1d1d1] text-lg md:text-xl max-w-2xl mx-auto">Platos cuidadosamente preparados para experiencias memorables, con sabores intensos y presentación premium.</p>
+      </div>
+
+      <section class="menu-showcase">
+        <article class="dish-card">
+          <img src="img/Enrrollado de pollo.jpg" alt="Enrollado de pollo" class="dish-thumb" />
+          <div class="dish-body">
+            <h2 class="dish-title">Enrollado de Pollo</h2>
+            <p class="dish-summary">Jugoso, suave y con relleno sabroso para una experiencia gourmet.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <img src="img/Aero brasa.png" alt="Aero-brasa" class="dish-thumb" />
+          <div class="dish-body">
+            <h2 class="dish-title">Aero-Brasa</h2>
+            <p class="dish-summary">Preparado con hierbas finas y textura tierna, ideal para banquetes.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <img src="img/lomo saltado.jpg" alt="Lomo saltado" class="dish-thumb" />
+          <div class="dish-body">
+            <h2 class="dish-title">Lomo Saltado</h2>
+            <p class="dish-summary">Carne salteada con sabor intenso, perfecta para una mesa principal.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <img src="img/pachamanca a la olla.jpg" alt="Pachamanca" class="dish-thumb" />
+          <div class="dish-body">
+            <h2 class="dish-title">Pachamanca</h2>
+            <p class="dish-summary">Un sabor tradicional, complejo y lleno de identidad regional.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <img src="img/pollo al horno.jpg" alt="Pollo al horno" class="dish-thumb" />
+          <div class="dish-body">
+            <h2 class="dish-title">Pollo al Horno</h2>
+            <p class="dish-summary">Marinado con hierbas finas y cocido con ternura para una textura excepcional.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <img src="img/Asado de Pejerrey Tradicional.jpg" alt="Asado de pejerrey" class="dish-thumb" />
+          <div class="dish-body">
+            <h2 class="dish-title">Asado de Pejerrey</h2>
+            <p class="dish-summary">Acompañado de un toque de vino tinto y aromas de la cocina tradicional.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <img src="img/trucha al ajillo.jpg" alt="Trucha dorada" class="dish-thumb" />
+          <div class="dish-body">
+            <h2 class="dish-title">Trucha Dorada</h2>
+            <p class="dish-summary">Filete suave con mantequilla, ajo y perejil para una presentación elegante.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Medallones de cerdo" class="dish-thumb" />
+          <div class="dish-body">
+            <h2 class="dish-title">Medallones de Cerdo</h2>
+            <p class="dish-summary">Cortes tiernos en salsa agridoce con un balance dulce y sabroso muy equilibrado.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="menu-section">
+        <div class="menu-section-header">Guarniciones</div>
+        <div class="menu-showcase">
+          <article class="dish-card">
+            <img src="img/Arroz a la Jardinera.webp" alt="Arroz a la jardinera" class="dish-thumb" />
+            <div class="dish-body">
+              <h2 class="dish-title">Arroz a la Jardinera</h2>
+              <p class="dish-summary">Sabor limpio y color natural, pensado para equilibrar carnes y preparaciones más intensas.</p>
+            </div>
+          </article>
+
+          <article class="dish-card">
+            <img src="img/papas.jpg" alt="Papas nativas" class="dish-thumb" />
+            <div class="dish-body">
+              <h2 class="dish-title">Papas Nativas</h2>
+              <p class="dish-summary">Papas doradas y aromáticas con un sabor herbal muy apetecible y una presentación elegante.</p>
+            </div>
+          </article>
+
+          <article class="dish-card">
+            <img src="img/Ensalada Fresca de estación.jpg" alt="Ensalada fresca" class="dish-thumb" />
+            <div class="dish-body">
+              <h2 class="dish-title">Ensalada Fresca</h2>
+              <p class="dish-summary">Refrescante y equilibrada, con verduras crujientes que aportan brillo y ligereza al plato.</p>
+            </div>
+          </article>
+
+          <article class="dish-card">
+            <img src="img/Arroz Blanco con choclo.webp" alt="Choclo con queso" class="dish-thumb" />
+            <div class="dish-body">
+              <h2 class="dish-title">Arroz con choclo</h2>
+              <p class="dish-summary">Una guarnición muy sabrosa, cremosa y tradicional con un acabado dorado y muy apetecible.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="menu-section">
+        <div class="menu-section-header">Entradas</div>
+        <div class="menu-showcase">
+          <article class="dish-card">
+            <img src="img/Causa.jpg" alt="Causa" class="dish-thumb" />
+            <div class="dish-body">
+              <h2 class="dish-title">Causa</h2>
+              <p class="dish-summary">Un clásico con textura cremosa y un sabor tradicional muy valorado en la gastronomía peruana.</p>
+            </div>
+          </article>
+
+          <article class="dish-card">
+            <img src="img/Papa a la Huancaína.jpg" alt="Papa a la huancaína" class="dish-thumb" />
+            <div class="dish-body">
+              <h2 class="dish-title">Papa a la Huancaína</h2>
+              <p class="dish-summary">Una entrada cremosa y distintiva, reconocida por su sabor suave y presencia elegante en la mesa.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-[#050505] text-[#d1d1d1] py-8 px-6 border-t border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-sm">
+      <p>© 2026 Chapay • Catering & Bar</p>
+      <div class="flex items-center gap-4">
+        <a href="servicios.html" class="hover:text-[#f0b14b]">Servicios</a>
+        <a href="menu.html" class="hover:text-[#f0b14b]">Menú</a>
+        <a href="galeria.html" class="hover:text-[#f0b14b]">Galería</a>
+        <a href="contacto.html" class="hover:text-[#f0b14b]">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

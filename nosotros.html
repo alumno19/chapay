@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros | Chapay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: #050505;
+      color: #f5f1ea;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.2rem;
+      color: #d1d1d1;
+      transition: color 0.18s ease-out;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -0.35rem;
+      width: 28%;
+      height: 2px;
+      background: linear-gradient(90deg, #f0b14b, #d99a2c);
+      border-radius: 999px;
+      opacity: 0;
+      transition: left 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.active {
+      color: #f0b14b;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after,
+    .nav-link.active::after {
+      opacity: 1;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 767px) {
+      .nav-link {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+      }
+
+      .nav-link::after {
+        left: 0.15rem;
+        top: 50%;
+        bottom: auto;
+        width: 3px;
+        height: 0;
+        opacity: 0;
+        transform: translateY(-50%);
+        border-radius: 999px;
+      }
+
+      .nav-link:hover::after,
+      .nav-link:focus-visible::after,
+      .nav-link.active::after {
+        left: 0.15rem;
+        top: 50%;
+        width: 3px;
+        height: 1.5rem;
+        opacity: 1;
+        transform: translateY(-50%);
+      }
+    }
+
+    .mobile-menu-toggle {
+      width: 52px;
+      height: 52px;
+      border-radius: 9999px;
+      border: 1px solid rgba(240, 177, 75, 0.8);
+      background: rgba(255,255,255,0.03);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 0 0 rgba(240,177,75,0.2);
+    }
+
+    .mobile-menu-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.2;
+    }
+
+    .mobile-menu-toggle.is-open {
+      background: rgba(240,177,75,0.14);
+      box-shadow: 0 0 0 6px rgba(240,177,75,0.08);
+      border-color: rgba(240,177,75,1);
+    }
+
+    .feature-card {
+      background: linear-gradient(180deg, rgba(18,18,18,0.92) 0%, rgba(12,12,12,1) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md shadow-sm border-b border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 min-w-0 shrink-0">
+        <img src="chapay.jpeg" alt="Chapay logo" class="h-20 sm:h-24 md:h-28 w-auto max-w-[240px] object-contain rounded-full shadow-sm border border-[#d4a449] bg-[#101010]">
+      </a>
+
+      <nav class="hidden md:flex gap-8 font-medium text-[#d1d1d1]">
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="menu.html" class="nav-link">Menú</a>
+        <a href="cocteles.html" class="nav-link">Cócteles</a>
+        <a href="galeria.html" class="nav-link">Galería</a>
+        <a href="nosotros.html" class="nav-link active">Nosotros</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="contacto.html" class="hidden md:inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-5 py-2.5 rounded-full font-semibold text-sm transition-colors shadow-md hover:shadow-[#f0b14b]/20">Cotizar Ahora</a>
+
+      <button id="mobile-menu-btn" class="mobile-menu-toggle md:hidden text-[#f5f5f5]" aria-label="Abrir menú">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 space-y-3">
+      <a href="servicios.html" class="nav-link block font-medium">Servicios</a>
+      <a href="menu.html" class="nav-link block font-medium">Menú</a>
+      <a href="cocteles.html" class="nav-link block font-medium">Cócteles</a>
+      <a href="galeria.html" class="nav-link block font-medium">Galería</a>
+      <a href="nosotros.html" class="nav-link block font-medium active">Nosotros</a>
+      <a href="contacto.html" class="nav-link block font-medium">Contacto</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <section class="mb-16 text-center max-w-5xl mx-auto">
+      <div class="inline-flex items-center justify-center gap-4 mb-5">
+        <span class="h-px w-16 bg-gradient-to-r from-transparent to-[#f0b14b]"></span>
+        <span class="inline-flex items-center gap-2 text-[#f0b14b] text-sm md:text-base uppercase tracking-[0.25em] font-semibold">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+          Nosotros
+        </span>
+        <span class="h-px w-16 bg-gradient-to-l from-transparent to-[#f0b14b]"></span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-none tracking-[-0.05em] mb-5">
+        <span class="inline-block text-[#f5f1ea] italic font-serif">La cocina</span>
+        <span class="inline-block text-[#f0b14b] italic font-serif ml-3 md:ml-4">que celebra</span>
+        <span class="block text-[#f5f1ea] italic font-serif mt-2">cada detalle</span>
+      </h1>
+
+      <p class="text-[#d1d1d1] text-lg md:text-xl max-w-3xl mx-auto">En Chapay combinamos tradición, creatividad y servicio impecable para convertir cada reunión en una experiencia memorable.</p>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
+      <div class="overflow-hidden rounded-[2rem] border border-[#2a2a2a] bg-[#101010] shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+        <img src="nosotros.png" alt="Chef preparando comida" class="w-full h-[560px] object-cover" />
+      </div>
+
+      <div class="space-y-6">
+        <div class="text-[#f0b14b] uppercase tracking-[0.22em] text-xs font-semibold">Nuestra historia</div>
+        <h2 class="text-3xl md:text-5xl font-black leading-tight text-[#f5f1ea] italic font-serif">Más que catering, una experiencia gourmet</h2>
+        <p class="text-[#d1d1d1] leading-relaxed text-lg">Desde nuestra cocina valoramos cada detalle: desde la selección de ingredientes hasta la presentación final en cada mesa. Trabajamos para que cada evento refleje estilo, calidez y autenticidad.</p>
+        <p class="text-[#d1d1d1] leading-relaxed text-lg">Nuestra misión es convertir momentos cotidianos en celebraciones inolvidables, con un servicio atento, creatividad constante y compromiso con la excelencia culinaria.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div class="feature-card rounded-2xl p-5 text-center">
+            <div class="text-[#f0b14b] text-3xl font-bold mb-2">6+</div>
+            <div class="text-sm text-[#d1d1d1] uppercase tracking-[0.12em]">Años</div>
+          </div>
+          <div class="feature-card rounded-2xl p-5 text-center">
+            <div class="text-[#f0b14b] text-3xl font-bold mb-2">100+</div>
+            <div class="text-sm text-[#d1d1d1] uppercase tracking-[0.12em]">Eventos</div>
+          </div>
+          <div class="feature-card rounded-2xl p-5 text-center">
+            <div class="text-[#f0b14b] text-3xl font-bold mb-2">100%</div>
+            <div class="text-sm text-[#d1d1d1] uppercase tracking-[0.12em]">Personalizado</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="text-[#f0b14b] uppercase tracking-[0.22em] text-xs font-semibold mb-3">Nuestros valores</div>
+        <h2 class="text-3xl md:text-4xl font-black text-[#f5f1ea] italic font-serif">Calidad, pasión y atención al detalle</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="feature-card rounded-3xl p-7">
+          <div class="w-12 h-12 rounded-full bg-[#f0b14b]/10 border border-[#f0b14b]/30 flex items-center justify-center text-[#f0b14b] mb-5">
+            <i data-lucide="leaf"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-[#f5f1ea] mb-3">Ingredientes auténticos</h3>
+          <p class="text-[#d1d1d1] leading-relaxed">Seleccionamos productos frescos y de alta calidad para garantizar sabor, textura y presentación impecables.</p>
+        </div>
+
+        <div class="feature-card rounded-3xl p-7">
+          <div class="w-12 h-12 rounded-full bg-[#f0b14b]/10 border border-[#f0b14b]/30 flex items-center justify-center text-[#f0b14b] mb-5">
+            <i data-lucide="users"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-[#f5f1ea] mb-3">Servicio cercano</h3>
+          <p class="text-[#d1d1d1] leading-relaxed">Nuestro equipo acompaña cada evento con disposición, calma y atención personalizada en cada etapa del servicio.</p>
+        </div>
+
+        <div class="feature-card rounded-3xl p-7">
+          <div class="w-12 h-12 rounded-full bg-[#f0b14b]/10 border border-[#f0b14b]/30 flex items-center justify-center text-[#f0b14b] mb-5">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-[#f5f1ea] mb-3">Experiencia premium</h3>
+          <p class="text-[#d1d1d1] leading-relaxed">Diseñamos cada presentación con una estética refinada y una propuesta gastronómica que sorprende a cada invitado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div class="overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#101010]">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Evento elegante" class="w-full h-72 object-cover" />
+      </div>
+      <div class="overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#101010]">
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=80" alt="Bodas y celebraciones" class="w-full h-72 object-cover" />
+      </div>
+      <div class="overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#101010]">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Catering premium" class="w-full h-72 object-cover" />
+      </div>
+    </section>
+
+    <section class="rounded-[2rem] border border-[#2a2a2a] bg-[#101010] px-6 py-10 text-center max-w-4xl mx-auto">
+      <div class="text-[#f0b14b] uppercase tracking-[0.22em] text-xs font-semibold mb-3">Nuestra promesa</div>
+      <h2 class="text-3xl md:text-5xl font-black leading-tight text-[#f5f1ea] italic font-serif mb-4">Cada evento, una historia inolvidable.</h2>
+      <p class="text-[#d1d1d1] text-lg max-w-2xl mx-auto mb-6">Creamos propuestas pensadas para sorprender, conectar y hacer que cada detalle brille con elegancia.</p>
+      <a href="contacto.html" class="inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-7 py-3.5 rounded-full font-semibold shadow-md hover:shadow-[#f0b14b]/20 transition-colors">Solicitar cotización</a>
+    </section>
+  </main>
+
+  <footer class="bg-[#050505] text-[#d1d1d1] py-8 px-6 border-t border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-sm">
+      <p>© 2026 Chapay • Catering & Banquetería</p>
+      <div class="flex items-center gap-4">
+        <a href="servicios.html" class="hover:text-[#f0b14b]">Servicios</a>
+        <a href="menu.html" class="hover:text-[#f0b14b]">Menú</a>
+        <a href="galeria.html" class="hover:text-[#f0b14b]">Galería</a>
+        <a href="contacto.html" class="hover:text-[#f0b14b]">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

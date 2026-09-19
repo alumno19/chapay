@@ -184,14 +184,15 @@
       
       <!-- Menú Desktop -->
       <nav class="hidden md:flex gap-8 font-medium text-[#d1d1d1]">
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="#menu" class="nav-link">Menú</a>
-        <a href="#galeria" class="nav-link">Galería</a>
-        <a href="#nosotros" class="nav-link">Nosotros</a>
-        <a href="#contacto" class="nav-link">Contacto</a>
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="menu.html" class="nav-link">Menú</a>
+        <a href="cocteles.html" class="nav-link">Cócteles</a>
+        <a href="galeria.html" class="nav-link">Galería</a>
+        <a href="nosotros.html" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
       </nav>
 
-      <a href="#contacto" class="hidden md:inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-5 py-2.5 rounded-full font-semibold text-sm transition-colors shadow-md hover:shadow-[#f0b14b]/20">
+      <a href="contacto.html" class="hidden md:inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-5 py-2.5 rounded-full font-semibold text-sm transition-colors shadow-md hover:shadow-[#f0b14b]/20">
         Cotizar Ahora
       </a>
 
@@ -203,21 +204,22 @@
 
     <!-- Menú Desplegable Móvil -->
     <div id="mobile-menu" class="hidden md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 space-y-3">
-      <a href="#servicios" class="nav-link block font-medium">Servicios</a>
-      <a href="#menu" class="nav-link block font-medium">Menú</a>
-      <a href="#galeria" class="nav-link block font-medium">Galería</a>
-      <a href="#nosotros" class="nav-link block font-medium">Nosotros</a>
-      <a href="#contacto" class="nav-link block font-medium">Contacto</a>
+      <a href="servicios.html" class="nav-link block font-medium">Servicios</a>
+      <a href="menu.html" class="nav-link block font-medium">Menú</a>
+      <a href="cocteles.html" class="nav-link block font-medium">Cócteles</a>
+      <a href="galeria.html" class="nav-link block font-medium">Galería</a>
+      <a href="nosotros.html" class="nav-link block font-medium">Nosotros</a>
+      <a href="contacto.html" class="nav-link block font-medium">Contacto</a>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="relative bg-black text-white py-28 px-6 text-center overflow-hidden">
     <div class="absolute inset-0 opacity-35 bg-cover bg-center" style="background-image: url('2.jpeg');"></div>
-    <div class="relative max-w-3xl mx-auto z-10">
+    <div class="relative max-w-4xl mx-auto z-10">
       <span class="text-[#f0b14b] font-semibold uppercase tracking-widest text-xs mb-3 block">Gastronomía & Coctelería</span>
       <h1 class="text-4xl sm:text-6xl font-extrabold mb-6 leading-tight text-white">Experiencias Culinarias Inolvidables</h1>
-      <p class="text-[#d9d9d9] text-lg mb-8 leading-relaxed">Ofrecemos servicio de catering y coctelería de alta gama para todo tipo de eventos, bodas y celebraciones sociales.</p>
+      <p class="text-[#d9d9d9] text-lg mb-8 leading-relaxed">Catering y banquetería premium para bodas, eventos empresariales y celebraciones sociales en Huancayo, Jauja y todo el valle del Mantaro.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="#contacto" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-8 rounded-full transition-all shadow-lg hover:shadow-amber-500/20">
           Solicitar Cotización
@@ -229,346 +231,96 @@
     </div>
   </section>
 
-  <section class="bg-black border-b border-[#2a2a2a]">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6 py-10">
-      <div class="reveal glow-card text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]" data-animate>
-        <div class="flex justify-center text-[#f0b14b] mb-3"><i data-lucide="award"></i></div>
-        <h3 class="text-3xl font-extrabold text-white">6+</h3>
-        <p class="text-[#d1d1d1] mt-2">Años de experiencia</p>
-      </div>
-      <div class="reveal glow-card text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]" data-animate>
-        <div class="flex justify-center text-[#f0b14b] mb-3"><i data-lucide="users"></i></div>
-        <h3 class="text-3xl font-extrabold text-white">100+</h3>
-        <p class="text-[#d1d1d1] mt-2">Invitados atendidos</p>
-      </div>
-      <div class="reveal glow-card text-center p-6 rounded-2xl bg-[#1d1d1d] border border-[#2a2a2a]" data-animate>
-        <div class="flex justify-center text-[#f0b14b] mb-3"><i data-lucide="sparkles"></i></div>
-        <h3 class="text-3xl font-extrabold text-white">4/5</h3>
-        <p class="text-[#d1d1d1] mt-2">Satisfacción promedio</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección Servicios -->
-  <section id="servicios" class="max-w-7xl mx-auto py-20 px-6 bg-black">
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <h2 class="text-3xl font-bold text-white mb-3">Nuestros Servicios</h2>
-      <p class="text-[#d1d1d1]">Soluciones gastronómicas adaptadas a la medida y escala de tu evento.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="reveal glow-card bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]" data-animate>
-        <div class="h-56 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop" alt="Eventos Corporativos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Eventos Corporativos</h3>
-          <p class="text-[#d1d1d1] text-sm leading-relaxed mb-4">Coffee breaks, almuerzos de directiva, cocteles de integración y banquetes institucionales.</p>
-          <a href="#contacto" class="text-[#f0b14b] font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
-            Consultar menú <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="reveal glow-card bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]" data-animate>
-        <div class="h-56 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Bodas y Aniversarios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Bodas & Celebraciones</h3>
-          <p class="text-[#d1d1d1] text-sm leading-relaxed mb-4">Banquetería completa, servicio de mozos, cristalería, mesas de postres y buffet exclusivo.</p>
-          <a href="#contacto" class="text-[#f0b14b] font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
-            Consultar menú <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="reveal glow-card bg-[#1a1a1a] rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group border border-[#2a2a2a]" data-animate>
-        <div class="h-56 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=800&auto=format&fit=crop" alt="Fiestas Privadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Fiestas & Bocaditos</h3>
-          <p class="text-[#d1d1d1] text-sm leading-relaxed mb-4">Estaciones temáticas de comida, bocaditos gourmet dulces/salados y barras de tragos.</p>
-          <a href="#contacto" class="text-[#f0b14b] font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
-            Consultar menú <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="menu" class="bg-[#0d0d0d] text-[#f5f1ea] py-20 px-6 border-y border-[#2a2a2a]">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-black text-center mb-3 tracking-tight" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">
-        Nuestra Selección de Platos
-      </h1>
-      <p class="text-center text-[#d7d0c8] text-lg mb-10 leading-relaxed">
-        Descubra nuestra variedad de opciones preparadas con ingredientes de la más alta calidad.
-      </p>
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-4xl md:text-5xl font-black mb-3 tracking-tight" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">
+          Nuestra Selección de Platos
+        </h2>
+        <p class="text-[#d7d0c8] text-lg leading-relaxed">
+          Platillos preparados con ingredientes premium para cada tipo de evento.
+        </p>
+      </div>
 
-      <div class="space-y-10">
-        <div class="menu-reveal">
-          <div class="bg-[#5f2b1d] text-white font-black uppercase text-xl md:text-2xl px-5 py-3 tracking-wide shadow-sm" style="font-family: Arial, Helvetica, sans-serif;">
-            Especialidades en Pollo
-          </div>
-
-          <div class="bg-[#111111] px-3 pt-5 pb-2 space-y-8 border border-[#2a2a2a]">
-            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
-              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
-                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Enrollado de Pollo</h3>
-                <p class="text-base leading-relaxed text-[#d7d0c8]">
-                  Jugosa pechuga de pollo rellena de jamón ahumado y queso fundido, acompañada de una suave salsa bechamel o champiñones.
-                </p>
-              </div>
-
-              <div class="menu-image-wrap rounded-xl shadow-md">
-                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=900&auto=format&fit=crop" alt="Enrollado de pollo" class="menu-image">
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
-              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
-                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Pollo al Horno a las Finas Hierbas</h3>
-                <p class="text-base leading-relaxed text-[#d7d0c8]">
-                  Pierna o pechuga marinada en romero, orégano y especies selectas, horneada a fuego lento para garantizar su terneza.
-                </p>
-              </div>
-
-              <div class="menu-image-wrap rounded-xl shadow-md">
-                <img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?q=80&w=900&auto=format&fit=crop" alt="Pollo al horno" class="menu-image">
-              </div>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="reveal glow-card bg-[#111111] border border-[#2a2a2a] rounded-2xl overflow-hidden" data-animate>
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop" alt="Plato 1" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-2" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Enrollado de Pollo</h3>
+            <p class="text-[#d1d1d1] leading-relaxed">Jugoso, suave y con relleno sabroso para una experiencia gourmet.</p>
           </div>
         </div>
 
-        <div class="menu-reveal">
-          <div class="bg-[#5f2b1d] text-white font-black uppercase text-xl md:text-2xl px-5 py-3 tracking-wide shadow-sm" style="font-family: Arial, Helvetica, sans-serif;">
-            Carnes de Cerdo y Res
-          </div>
-
-          <div class="bg-[#111111] px-3 pt-5 pb-2 space-y-8 border border-[#2a2a2a]">
-            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
-              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
-                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Medallones de Cerdo en Salsa Agridoce</h3>
-                <p class="text-base leading-relaxed text-[#d7d0c8]">
-                  Cortes tiernos de lomo de cerdo bañados en una delicada salsa de guindones o durazno.
-                </p>
-              </div>
-
-              <div class="menu-image-wrap rounded-xl shadow-md">
-                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop" alt="Medallones de cerdo" class="menu-image">
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
-              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
-                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Asado de Pescado Tradicional</h3>
-                <p class="text-base leading-relaxed text-[#d7d0c8]">
-                  Láminas de asado de res cocidas en su propio jugo con un toque de vino tinto y especies, logrando una textura que se deshace en el paladar.
-                </p>
-              </div>
-
-              <div class="menu-image-wrap rounded-xl shadow-md">
-                <img src="asado de pescado.jpg" alt="Asado de pescado" class="menu-image">
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
-              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
-                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Lomo Saltado de Fiesta</h3>
-                <p class="text-base leading-relaxed text-[#d7d0c8]">
-                  Fina carne de res salteada al wok con cebolla, tomate y nuestro aderezo especial de la casa.
-                </p>
-              </div>
-
-              <div class="menu-image-wrap rounded-xl shadow-md">
-                <img src="lomo saltado.jpg" alt="Lomo saltado" class="menu-image">
-              </div>
-            </div>
+        <div class="reveal glow-card bg-[#111111] border border-[#2a2a2a] rounded-2xl overflow-hidden" data-animate>
+          <img src="img/Aero brasa.png" alt="Plato 2" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-2" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Aero-Brasa</h3>
+            <p class="text-[#d1d1d1] leading-relaxed">Preparado con hierbas finas y textura tierna, ideal para banquetes.</p>
           </div>
         </div>
 
-        <div class="menu-reveal">
-          <div class="bg-[#5f2b1d] text-white font-black uppercase text-xl md:text-2xl px-5 py-3 tracking-wide shadow-sm" style="font-family: Arial, Helvetica, sans-serif;">
-            Tradición y Sabor Regional
+        <div class="reveal glow-card bg-[#111111] border border-[#2a2a2a] rounded-2xl overflow-hidden" data-animate>
+          <img src="img/lomo saltado.jpg" alt="Plato 3" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-2" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Lomo Saltado</h3>
+            <p class="text-[#d1d1d1] leading-relaxed">Carne salteada con sabor intenso, perfecta para una mesa principal.</p>
           </div>
+        </div>
 
-          <div class="bg-[#111111] px-3 pt-5 pb-2 space-y-8 border border-[#2a2a2a]">
-            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
-              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
-                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Pachamanca a la Olla</h3>
-                <p class="text-base leading-relaxed text-[#d7d0c8]">
-                  Macerado de carnes (res, cerdo y pollo) con chinchu, huacatay y especias andinas, cocido a la perfección. Acompañado de humitas, papas, camote y habas.
-                </p>
-              </div>
-
-              <div class="menu-image-wrap rounded-xl shadow-md">
-                <img src="pachamanca a la olla.jpg" alt="Pachamanca" class="menu-image">
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
-              <div class="border-l-4 border-[#d4a449] pl-4 py-2">
-                <h3 class="text-2xl font-bold mb-1" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Trucha Dorada al Ajíllo</h3>
-                <p class="text-base leading-relaxed text-[#d7d0c8]">
-                  Filete de trucha fresca bañada en una exquisita salsa de mantequilla, ajo y perejil, acompañada de papas doradas.
-                </p>
-              </div>
-
-              <div class="menu-image-wrap rounded-xl shadow-md">
-                <img src="trucha al ajillo.jpg" alt="Trucha dorada" class="menu-image">
-              </div>
-            </div>
+        <div class="reveal glow-card bg-[#111111] border border-[#2a2a2a] rounded-2xl overflow-hidden" data-animate>
+          <img src="img/pachamanca a la olla.jpg" alt="Plato 4" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-2" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Pachamanca</h3>
+            <p class="text-[#d1d1d1] leading-relaxed">Un sabor tradicional, complejo y lleno de identidad regional.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-[#0d0d0d] text-[#f5f1ea] py-20 px-6 border-b border-[#2a2a2a]">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-black text-center mb-4" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">
-        Acompañamientos y Opciones de Servicio
-      </h2>
-
-      <div class="mt-10 bg-[#5f2b1d] text-white px-5 py-3 font-black uppercase text-xl tracking-wide shadow-sm" style="font-family: Arial, Helvetica, sans-serif;">
-        Guarniciones a Elegir
+  <section id="cocteles" class="bg-[#0d0d0d] text-[#f5f1ea] py-20 px-6 border-y border-[#2a2a2a]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-4xl md:text-5xl font-black mb-3 tracking-tight" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">
+          Selección Premium de Cócteles
+        </h2>
+        <p class="text-[#d7d0c8] text-lg leading-relaxed">
+          Preparados para acompañar tus eventos con estilo y personalidad.
+        </p>
       </div>
 
-      <div class="bg-[#111111] px-6 py-6 text-[#d7d0c8] text-lg leading-relaxed border border-[#2a2a2a] border-t-0 shadow-sm">
-        <p>Todos nuestros platos de fondo pueden combinarse con dos guarniciones a su elección:</p>
-        <ul class="mt-4 space-y-2 list-disc pl-6 marker:text-[#d4a449]">
-          <li>Arroz Árabe con pasas y fideos</li>
-          <li>Arroz a la jardinera / Arroz Blanco con chodo</li>
-          <li>Puré rústico de papa o manzana</li>
-          <li>Papas nativas a las finas hierbas</li>
-          <li>Ensaladas: Waldorf, Fresa de estación o Vegetales salteados en mantequilla</li>
-        </ul>
-      </div>
-
-      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="reveal glow-card group overflow-hidden rounded-2xl border border-[#2a2a2a] shadow-sm bg-[#111111]" data-animate>
-          <div class="overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=900&auto=format&fit=crop" alt="Arroz árabe" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
-          </div>
-          <div class="bg-[#5f2b1d] text-white px-4 py-3 font-semibold text-sm uppercase tracking-wide">Arroz Árabe</div>
-        </div>
-
-        <div class="reveal glow-card group overflow-hidden rounded-2xl border border-[#2a2a2a] shadow-sm bg-[#111111]" data-animate>
-          <div class="overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=900&auto=format&fit=crop" alt="Papas nativas" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
-          </div>
-          <div class="bg-[#5f2b1d] text-white px-4 py-3 font-semibold text-sm uppercase tracking-wide">Papas Nativas</div>
-        </div>
-
-        <div class="reveal glow-card group overflow-hidden rounded-2xl border border-[#2a2a2a] shadow-sm bg-[#111111]" data-animate>
-          <div class="overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=900&auto=format&fit=crop" alt="Ensalada gourmet" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
-          </div>
-          <div class="bg-[#5f2b1d] text-white px-4 py-3 font-semibold text-sm uppercase tracking-wide">Ensalada Gourmet</div>
-        </div>
-      </div>
-
-      <div class="mt-12 text-center">
-        <h3 class="text-4xl md:text-5xl font-black mb-6" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">
-          Estructura de Nuestros Paquetes
-        </h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="reveal glow-card bg-[#121212] border border-[#2a2a2a] p-0 shadow-sm rounded-none" data-animate>
-          <div class="bg-[#5f2b1d] text-white font-bold text-2xl text-center py-4 border-b border-[#d9c7b0]" style="font-family: Georgia, 'Times New Roman', serif;">
-            Paquete Clásico
-          </div>
-          <div class="p-5 text-[#d7d0c8] text-lg leading-relaxed">
-            <p class="mb-3 font-semibold text-[#f0b14b]">Ideal para reuniones ágiles</p>
-            <ul class="space-y-2 list-disc pl-6 marker:text-[#d4a449]">
-              <li>1 Opción de Plato de Fondo</li>
-              <li>2 Guarniciones a elección</li>
-              <li>Menaje de loza y cubiertos de acero</li>
-              <li>Personal de servicio (Mozos)</li>
-              <li>Refrigerio (Chicha morada o Maracuyá)</li>
-            </ul>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="reveal glow-card bg-[#111111] border border-[#2a2a2a] rounded-2xl overflow-hidden" data-animate>
+          <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80" alt="Margarita" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-2" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Margarita</h3>
+            <p class="text-[#d1d1d1] leading-relaxed">Tequila, lima y un toque cítrico con equilibrio perfecto.</p>
           </div>
         </div>
 
-        <div class="reveal glow-card bg-[#121212] border border-[#2a2a2a] p-0 shadow-sm rounded-none" data-animate>
-          <div class="bg-[#5f2b1d] text-white font-bold text-2xl text-center py-4 border-b border-[#d9c7b0]" style="font-family: Georgia, 'Times New Roman', serif;">
-            Paquete Completo
-          </div>
-          <div class="p-5 text-[#d7d0c8] text-lg leading-relaxed">
-            <p class="mb-3 font-semibold text-[#f0b14b]">La experiencia gastronómica total</p>
-            <ul class="space-y-2 list-disc pl-6 marker:text-[#d4a449]">
-              <li>Entrada (Ej. Causa, Papa a la Huancaína)</li>
-              <li>1 Opción de Plato de Fondo</li>
-              <li>2 Guarniciones a elección</li>
-              <li>Menaje completo de loza y cristalería</li>
-              <li>Personal de servicio (Mozos)</li>
-              <li>Bebida ilimitada durante la cena</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 bg-[#171717] text-[#f5f1ea] px-5 py-4 text-center text-base leading-relaxed border border-[#d4a449]">
-        Condiciones del servicio: Cotizaciones personalizadas según el número de invitados y requisitos especiales. Se requiere una anticipación mínima para confirmar fechas. Los precios pueden variar según la temporada de los insumos.
-      </div>
-    </div>
-  </section>
-
-  <section id="galeria" class="bg-black text-white py-20 px-6 border-y border-[#2a2a2a]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <h2 class="text-3xl font-bold mb-3 text-white">Nuestra Galería</h2>
-        <p class="text-[#d1d1d1]">Cada evento se prepara con detalle, sabor y presentación impecable.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <img src="1.jpeg" alt="Evento catering 1" class="reveal glow-card h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300" data-animate>
-        <img src="2.jpeg" alt="Evento catering 2" class="reveal glow-card h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300" data-animate>
-        <img src="3.jpeg" alt="Evento catering 3" class="reveal glow-card h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300" data-animate>
-        <img src="chapay.jpeg" alt="Evento catering 4" class="reveal glow-card h-72 w-full object-cover rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300" data-animate>
-      </div>
-    </div>
-  </section>
-
-  <section id="nosotros" class="max-w-7xl mx-auto py-20 px-6 bg-black">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="text-sm uppercase tracking-[0.2em] text-[#f0b14b] font-semibold">Sobre nosotros</span>
-        <h2 class="text-3xl font-bold text-white mt-4 mb-5">Cocina con alma, servicio con detalle.</h2>
-        <p class="text-[#d1d1d1] leading-relaxed mb-5">En MiCatering combinamos creatividad culinaria, logística impecable y atención personalizada para crear experiencias memorables en cada evento.</p>
-        <p class="text-[#d1d1d1] leading-relaxed mb-8">Desde reuniones ejecutivas hasta celebraciones familiares, cuidamos cada detalle para que disfrutes del momento y tus invitados recuerden la experiencia.</p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div class="bg-[#1a1a1a] p-5 rounded-2xl border border-[#2a2a2a]">
-            <div class="text-[#f0b14b] mb-2"><i data-lucide="utensils-crossed"></i></div>
-            <h3 class="font-bold text-white mb-1">Menú personalizado</h3>
-            <p class="text-sm text-[#d1d1d1]">Adaptamos sabores y presentaciones a tu estilo.</p>
-          </div>
-          <div class="bg-[#1a1a1a] p-5 rounded-2xl border border-[#2a2a2a]">
-            <div class="text-[#f0b14b] mb-2"><i data-lucide="truck"></i></div>
-            <h3 class="font-bold text-white mb-1">Logística completa</h3>
-            <p class="text-sm text-[#d1d1d1]">Montaje, servicio y coordinación en cada etapa.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] rounded-3xl p-8 shadow-lg border border-[#d4a449]">
-        <div class="flex items-center gap-4 mb-6">
-          <img src="chapay.jpeg" alt="Chapay logo" class="h-16 w-16 rounded-full object-cover border-2 border-[#d4a449] bg-white shadow-sm">
-          <div>
-            <p class="text-lg font-bold text-white">Chapay</p>
-            <p class="text-sm text-[#d1d1d1]">Eventos premium</p>
+        <div class="reveal glow-card bg-[#111111] border border-[#2a2a2a] rounded-2xl overflow-hidden" data-animate>
+          <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=900&q=80" alt="Pisco Sour" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-2" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Pisco Sour</h3>
+            <p class="text-[#d1d1d1] leading-relaxed">Pisco, limón y espuma delicada con un final refrescante.</p>
           </div>
         </div>
 
-        <ul class="space-y-4 text-[#e3e3e3]">
-          <li class="flex gap-3"><span class="text-[#5cd688] mt-1"><i data-lucide="check-circle"></i></span> Personal gastronómico calificado</li>
-          <li class="flex gap-3"><span class="text-[#5cd688] mt-1"><i data-lucide="check-circle"></i></span> Propuesta según el tipo de evento y presupuesto</li>
-          <li class="flex gap-3"><span class="text-[#5cd688] mt-1"><i data-lucide="check-circle"></i></span> Atención ágil y servicio profesional</li>
-        </ul>
+        <div class="reveal glow-card bg-[#111111] border border-[#2a2a2a] rounded-2xl overflow-hidden" data-animate>
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=80" alt="Cosmopolitan" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-2" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Cosmopolitan</h3>
+            <p class="text-[#d1d1d1] leading-relaxed">Vodka, arándano y cítricos con un estilo moderno y suave.</p>
+          </div>
+        </div>
+
+        <div class="reveal glow-card bg-[#111111] border border-[#2a2a2a] rounded-2xl overflow-hidden" data-animate>
+          <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=900&q=80" alt="Whisky Sour" class="w-full h-64 object-cover">
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-2" style="font-family: Georgia, 'Times New Roman', serif; color: #f5f1ea;">Whisky Sour</h3>
+            <p class="text-[#d1d1d1] leading-relaxed">Whisky, limón y un punto dulce para una experiencia cítrica.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -576,7 +328,7 @@
   <section class="bg-[#0d0d0d] py-20 px-6 border-y border-[#2a2a2a]">
     <div class="max-w-6xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-sm uppercase tracking-[0.2em] text-[#f0b14b] font-semibold">Testimonios</span>
+        <span class="text-sm uppercase tracking-[0.2em] text-[#f0b14b] font-semibold">Reseñas</span>
         <h2 class="text-3xl font-bold text-white mt-4 mb-3">Lo que dicen nuestros clientes</h2>
       </div>
 
@@ -585,7 +337,7 @@
           <div class="text-[#f0b14b] mb-3 flex gap-1">
             <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
           </div>
-          <p class="text-[#d1d1d1] leading-relaxed mb-5">“La atención fue impecable y la comida superó todas nuestras expectativas. Todo quedó hermoso y con un sabor increíble.”</p>
+          <p class="text-[#d1d1d1] leading-relaxed mb-5">“La atención fue impecable y la comida superó todas nuestras expectativas.”</p>
           <div class="font-bold text-white">María R.</div>
           <div class="text-sm text-[#f0b14b]">Boda</div>
         </div>
@@ -594,7 +346,7 @@
           <div class="text-[#f0b14b] mb-3 flex gap-1">
             <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
           </div>
-          <p class="text-[#d1d1d1] leading-relaxed mb-5">“Trabajaron con precisión y profesionalismo. El servicio para nuestra reunión corporativa fue de nivel premium.”</p>
+          <p class="text-[#d1d1d1] leading-relaxed mb-5">“Trabajaron con precisión y profesionalismo. El servicio fue de nivel premium.”</p>
           <div class="font-bold text-white">Jorge P.</div>
           <div class="text-sm text-[#f0b14b]">Evento corporativo</div>
         </div>
@@ -603,7 +355,7 @@
           <div class="text-[#f0b14b] mb-3 flex gap-1">
             <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
           </div>
-          <p class="text-[#d1d1d1] leading-relaxed mb-5">“Todo fue muy organizado, desde la propuesta hasta la ejecución. Mejoraron la experiencia de nuestra celebración.”</p>
+          <p class="text-[#d1d1d1] leading-relaxed mb-5">“Todo fue muy organizado, desde la propuesta hasta la ejecución.”</p>
           <div class="font-bold text-white">Sofía V.</div>
           <div class="text-sm text-[#f0b14b]">Fiesta privada</div>
         </div>
@@ -661,12 +413,12 @@
 
   <footer class="bg-[#050505] text-[#d1d1d1] py-8 px-6 border-t border-[#2a2a2a]">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-sm">
-      <p>© 2026 Chapay • Catering & Banquetería</p>
+      <p>© 2026 Chapay • Catering & Bar</p>
       <div class="flex items-center gap-4">
-        <a href="#servicios" class="hover:text-[#f0b14b]">Servicios</a>
-        <a href="#menu" class="hover:text-[#f0b14b]">Menú</a>
-        <a href="#galeria" class="hover:text-[#f0b14b]">Galería</a>
-        <a href="#contacto" class="hover:text-[#f0b14b]">Contacto</a>
+        <a href="servicios.html" class="hover:text-[#f0b14b]">Servicios</a>
+        <a href="menu.html" class="hover:text-[#f0b14b]">Menú</a>
+        <a href="galeria.html" class="hover:text-[#f0b14b]">Galería</a>
+        <a href="contacto.html" class="hover:text-[#f0b14b]">Contacto</a>
       </div>
     </div>
   </footer>

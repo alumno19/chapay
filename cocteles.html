@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cócteles | Chapay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: rgba(18, 18, 18, 0.92);
+      --muted: #cfc5b6;
+      --gold: #d9a449;
+      --gold-soft: #f0b14b;
+      --light: #f4f0ea;
+      --dark-card: #111111;
+      --line: rgba(217, 164, 73, 0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--light);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.2rem;
+      color: #d1d1d1;
+      transition: color 0.18s ease-out;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -0.35rem;
+      width: 28%;
+      height: 2px;
+      background: linear-gradient(90deg, #f0b14b, #d99a2c);
+      border-radius: 999px;
+      opacity: 0;
+      transition: left 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.active {
+      color: #f0b14b;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after,
+    .nav-link.active::after {
+      opacity: 1;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 767px) {
+      .nav-link {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+      }
+
+      .nav-link::after {
+        left: 0.15rem;
+        top: 50%;
+        bottom: auto;
+        width: 3px;
+        height: 0;
+        opacity: 0;
+        transform: translateY(-50%);
+        border-radius: 999px;
+      }
+
+      .nav-link:hover::after,
+      .nav-link:focus-visible::after,
+      .nav-link.active::after {
+        left: 0.15rem;
+        top: 50%;
+        width: 3px;
+        height: 1.5rem;
+        opacity: 1;
+        transform: translateY(-50%);
+      }
+    }
+
+    .mobile-menu-toggle {
+      width: 52px;
+      height: 52px;
+      border-radius: 9999px;
+      border: 1px solid rgba(240, 177, 75, 0.8);
+      background: rgba(255,255,255,0.03);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 0 0 rgba(240,177,75,0.2);
+    }
+
+    .mobile-menu-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.2;
+    }
+
+    .mobile-menu-toggle.is-open {
+      background: rgba(240,177,75,0.14);
+      box-shadow: 0 0 0 6px rgba(240,177,75,0.08);
+      border-color: rgba(240,177,75,1);
+    }
+
+    .cocktail-shell {
+      background: #050505;
+      min-height: 100vh;
+      padding: 40px 0 80px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: 0 auto 18px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      font-size: 0.9rem;
+      display: flex;
+      width: fit-content;
+    }
+
+    .section-tag::before,
+    .section-tag::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,164,73,0.9), transparent);
+    }
+
+    .hero-title {
+      margin: 0 auto 18px;
+      max-width: 1200px;
+      text-align: center;
+      font-size: clamp(3rem, 6vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      font-weight: 800;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #f2efe9;
+    }
+
+    .hero-title .emphasis {
+      color: var(--gold);
+      font-style: italic;
+      margin-left: 0.06em;
+    }
+
+    .hero-copy {
+      max-width: 980px;
+      margin: 0 auto 42px;
+      text-align: center;
+      color: #d7d1ca;
+      font-size: clamp(1.05rem, 1.8vw, 1.8rem);
+      line-height: 1.4;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .cocktail-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(220px, 1fr));
+      gap: 18px;
+      padding: 0 30px;
+    }
+
+    .cocktail-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));
+      box-shadow: 0 16px 30px rgba(0,0,0,0.18);
+      min-height: 280px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cocktail-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 32px rgba(217,164,73,0.12);
+    }
+
+    .cocktail-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.1) contrast(1.05);
+    }
+
+    .cocktail-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.7));
+    }
+
+    .cocktail-name {
+      position: absolute;
+      left: 18px;
+      bottom: 44px;
+      right: 18px;
+      color: #f7f2ec;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: clamp(1.3rem, 1.8vw, 2rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      z-index: 1;
+    }
+
+    .cocktail-desc {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 16px;
+      color: rgba(244, 240, 234, 0.88);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+      z-index: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .cocktail-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cocktail-shell {
+        padding-top: 28px;
+      }
+
+      .section-tag {
+        gap: 10px;
+        letter-spacing: 0.12em;
+        font-size: 0.8rem;
+      }
+
+      .section-tag::before,
+      .section-tag::after {
+        width: 42px;
+      }
+
+      .hero-title {
+        max-width: 92%;
+        letter-spacing: -0.04em;
+      }
+
+      .cocktail-grid {
+        grid-template-columns: 1fr;
+        padding: 0 18px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md shadow-sm border-b border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 min-w-0 shrink-0">
+        <img src="chapay.jpeg" alt="Chapay logo" class="h-20 sm:h-24 md:h-28 w-auto max-w-[240px] object-contain rounded-full shadow-sm border border-[#d4a449] bg-[#101010]">
+      </a>
+
+      <nav class="hidden md:flex gap-8 font-medium text-[#d1d1d1]">
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="menu.html" class="nav-link">Menú</a>
+        <a href="cocteles.html" class="nav-link active">Cócteles</a>
+        <a href="galeria.html" class="nav-link">Galería</a>
+        <a href="nosotros.html" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <a href="contacto.html" class="hidden md:inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-5 py-2.5 rounded-full font-semibold text-sm transition-colors shadow-md hover:shadow-[#f0b14b]/20">Cotizar Ahora</a>
+
+      <button id="mobile-menu-btn" class="mobile-menu-toggle md:hidden text-[#f5f5f5]" aria-label="Abrir menú">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 space-y-3">
+      <a href="servicios.html" class="nav-link block font-medium">Servicios</a>
+      <a href="menu.html" class="nav-link block font-medium">Menú</a>
+      <a href="cocteles.html" class="nav-link block font-medium active">Cócteles</a>
+      <a href="galeria.html" class="nav-link block font-medium">Galería</a>
+      <a href="nosotros.html" class="nav-link block font-medium">Nosotros</a>
+      <a href="contacto.html" class="nav-link block font-medium">Contacto</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <div class="text-center max-w-5xl mx-auto mb-12">
+      <div class="inline-flex items-center justify-center gap-4 mb-5">
+        <span class="h-px w-16 bg-gradient-to-r from-transparent to-[#f0b14b]"></span>
+        <span class="inline-flex items-center gap-2 text-[#f0b14b] text-sm md:text-base uppercase tracking-[0.25em] font-semibold">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+          Cócteles
+        </span>
+        <span class="h-px w-16 bg-gradient-to-l from-transparent to-[#f0b14b]"></span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-none tracking-[-0.05em] mb-5">
+        <span class="inline-block text-[#f5f1ea] italic font-serif">Selección</span>
+        <span class="inline-block text-[#f0b14b] italic font-serif ml-2 md:ml-4">premium</span>
+        <span class="block text-[#f5f1ea] italic font-serif mt-2">de bebidas</span>
+      </h1>
+
+      <p class="text-[#d1d1d1] text-lg md:text-xl max-w-2xl mx-auto">10 opciones iniciales para elevar la experiencia de tus eventos con estilo, sabor y presentación impecable.</p>
+    </div>
+
+    <div class="cocktail-grid" aria-label="Selección de cócteles">
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80" alt="Cóctel clásico" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Margarita</div>
+        <p class="cocktail-desc">Tequila, lima y un toque cítrico con equilibrio perfecto.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=900&q=80" alt="Cóctel tropical" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Pisco Sour</div>
+        <p class="cocktail-desc">Pisco, limón y espuma delicada con un final refrescante.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="mojito.jpg" alt="Cóctel refrescante" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Mojito</div>
+        <p class="cocktail-desc">Mentha fresca, ron y limón para un sabor limpio y vibrante.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="Cóctel oscuroOld Fashioned.jpg" alt="Cóctel oscuro" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Old Fashioned</div>
+        <p class="cocktail-desc">Whisky, azúcar y bitters con un perfil intenso y elegante.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=80" alt="Cóctel de frutos rojos" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Cosmopolitan</div>
+        <p class="cocktail-desc">Vodka, arándano y cítricos con un estilo moderno y suave.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80" alt="Cóctel con menta" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Mint Julep</div>
+        <p class="cocktail-desc">Bourbon, menta y hielo para una nota herbal muy fresca.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="cuba libre.webp" alt="Cóctel cítrico" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Cuba Libre</div>
+        <p class="cocktail-desc">Ron, cola y limón con una mezcla clásica y muy socorrida.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=900&q=80" alt="Cóctel de whisky" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Whisky Sour</div>
+        <p class="cocktail-desc">Whisky, limón y un punto dulce para una presentación ácida.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="Mango Spritz.jpg" alt="Cóctel de maracuyá" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Mango Spritz</div>
+        <p class="cocktail-desc">Mango, espuma y un toque efervescente muy tropical.</p>
+      </article>
+
+      <article class="cocktail-card">
+        <img class="cocktail-image" src="Berry Fizz.jpg" alt="Cóctel con frutos rojos y hielo" />
+        <div class="cocktail-overlay"></div>
+        <div class="cocktail-name">Berry Fizz</div>
+        <p class="cocktail-desc">Frutos rojos y soda con una final brillante y refrescante.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-[#050505] text-[#d1d1d1] py-8 px-6 border-t border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-sm">
+      <p>© 2026 Chapay • Catering & Bar</p>
+      <div class="flex items-center gap-4">
+        <a href="servicios.html" class="hover:text-[#f0b14b]">Servicios</a>
+        <a href="menu.html" class="hover:text-[#f0b14b]">Menú</a>
+        <a href="galeria.html" class="hover:text-[#f0b14b]">Galería</a>
+        <a href="contacto.html" class="hover:text-[#f0b14b]">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios | Chapay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { background: #050505; }
+    .nav-link { position: relative; display: inline-flex; align-items: center; justify-content: center; padding-bottom: 0.2rem; color: #d1d1d1; transition: color 0.18s ease-out; }
+    .nav-link::after { content: ""; position: absolute; left: 50%; bottom: -0.35rem; width: 28%; height: 2px; background: linear-gradient(90deg, #f0b14b, #d99a2c); border-radius: 999px; opacity: 0; transition: left 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out; transform: translateX(-50%); }
+    .nav-link:hover, .nav-link:focus-visible, .nav-link.active { color: #f0b14b; }
+    .nav-link:hover::after, .nav-link:focus-visible::after, .nav-link.active::after { opacity: 1; left: 50%; transform: translateX(-50%); }
+    @media (max-width: 767px){
+      .nav-link { padding-left: 0.9rem; padding-right: 0.9rem; }
+      .nav-link::after { left: 0.15rem; top: 50%; bottom: auto; width: 3px; height: 0; opacity: 0; transform: translateY(-50%); border-radius: 999px; }
+      .nav-link:hover::after, .nav-link:focus-visible::after, .nav-link.active::after { left: 0.15rem; top: 50%; width: 3px; height: 1.5rem; opacity: 1; transform: translateY(-50%); }
+    }
+    .mobile-menu-toggle { width: 52px; height: 52px; border-radius: 9999px; border: 1px solid rgba(240, 177, 75, 0.8); background: rgba(255,255,255,0.03); display:inline-flex; align-items:center; justify-content:center; transition:all 0.25s ease; box-shadow: 0 0 0 0 rgba(240,177,75,0.2); }
+    .mobile-menu-toggle svg { width:24px; height:24px; stroke-width:2.2; }
+    .mobile-menu-toggle.is-open { background: rgba(240,177,75,0.14); box-shadow: 0 0 0 6px rgba(240,177,75,0.08); border-color: rgba(240,177,75,1); }
+  </style>
+</head>
+<body class="bg-black text-white font-sans antialiased">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md shadow-sm border-b border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 min-w-0 shrink-0">
+        <img src="chapay.jpeg" alt="Chapay logo" class="h-20 sm:h-24 md:h-28 w-auto max-w-[240px] object-contain rounded-full shadow-sm border border-[#d4a449] bg-[#101010]">
+      </a>
+      <nav class="hidden md:flex gap-8 font-medium text-[#d1d1d1]">
+        <a href="servicios.html" class="nav-link active">Servicios</a>
+        <a href="menu.html" class="nav-link">Menú</a>
+        <a href="cocteles.html" class="nav-link">Cócteles</a>
+        <a href="galeria.html" class="nav-link">Galería</a>
+        <a href="nosotros.html" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+      <a href="contacto.html" class="hidden md:inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-5 py-2.5 rounded-full font-semibold text-sm transition-colors shadow-md hover:shadow-[#f0b14b]/20">Cotizar Ahora</a>
+      <button id="mobile-menu-btn" class="mobile-menu-toggle md:hidden text-[#f5f5f5]" aria-label="Abrir menú">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 space-y-3">
+      <a href="servicios.html" class="nav-link block font-medium active">Servicios</a>
+      <a href="menu.html" class="nav-link block font-medium">Menú</a>
+      <a href="cocteles.html" class="nav-link block font-medium">Cócteles</a>
+      <a href="galeria.html" class="nav-link block font-medium">Galería</a>
+      <a href="nosotros.html" class="nav-link block font-medium">Nosotros</a>
+      <a href="contacto.html" class="nav-link block font-medium">Contacto</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <div class="text-center max-w-5xl mx-auto mb-12">
+      <div class="inline-flex items-center justify-center gap-4 mb-5">
+        <span class="h-px w-16 bg-gradient-to-r from-transparent to-[#f0b14b]"></span>
+        <span class="inline-flex items-center gap-2 text-[#f0b14b] text-sm md:text-base uppercase tracking-[0.25em] font-semibold">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+          Servicios
+        </span>
+        <span class="h-px w-16 bg-gradient-to-l from-transparent to-[#f0b14b]"></span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-none tracking-[-0.05em] mb-5">
+        <span class="inline-block text-[#f5f1ea] italic font-serif">Soluciones</span>
+        <span class="inline-block text-[#f0b14b] italic font-serif ml-2 md:ml-4">gourmet</span>
+        <span class="block text-[#f5f1ea] italic font-serif mt-2">para cada evento</span>
+      </h1>
+
+      <p class="text-[#d1d1d1] text-lg md:text-xl max-w-2xl mx-auto">Creamos experiencias gastronómicas completas, con atención personalizada y logística impecable.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop" alt="Eventos Corporativos" class="w-full h-56 object-cover">
+        <div class="p-6">
+          <h2 class="text-xl font-bold mb-2">Eventos Corporativos</h2>
+          <p class="text-[#d1d1d1] leading-relaxed">Coffee breaks, almuerzos ejecutivos, cocteles de integración y recepción de clientes.</p>
+        </div>
+      </div>
+      <div class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Bodas y aniversarios" class="w-full h-56 object-cover">
+        <div class="p-6">
+          <h2 class="text-xl font-bold mb-2">Bodas & Celebraciones</h2>
+          <p class="text-[#d1d1d1] leading-relaxed">Menús de alta gama, servicio de mozos, mesas de postres y ambientación premium.</p>
+        </div>
+      </div>
+      <div class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=800&auto=format&fit=crop" alt="Fiestas privadas" class="w-full h-56 object-cover">
+        <div class="p-6">
+          <h2 class="text-xl font-bold mb-2">Fiestas & Bocaditos</h2>
+          <p class="text-[#d1d1d1] leading-relaxed">Barras de canapés, bocaditos gourmet y estaciones de servicio para eventos sociales.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-[#050505] text-[#d1d1d1] py-8 px-6 border-t border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-sm">
+      <p>© 2026 Chapay • Catering & Bar</p>
+      <div class="flex items-center gap-4">
+        <a href="servicios.html" class="hover:text-[#f0b14b]">Servicios</a>
+        <a href="menu.html" class="hover:text-[#f0b14b]">Menú</a>
+        <a href="galeria.html" class="hover:text-[#f0b14b]">Galería</a>
+        <a href="contacto.html" class="hover:text-[#f0b14b]">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

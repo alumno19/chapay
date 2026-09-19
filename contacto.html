@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Chapay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      background: #050505;
+      color: #f5f1ea;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.2rem;
+      color: #d1d1d1;
+      transition: color 0.18s ease-out;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -0.35rem;
+      width: 28%;
+      height: 2px;
+      background: linear-gradient(90deg, #f0b14b, #d99a2c);
+      border-radius: 999px;
+      opacity: 0;
+      transition: left 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible,
+    .nav-link.active {
+      color: #f0b14b;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after,
+    .nav-link.active::after {
+      opacity: 1;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 767px) {
+      .nav-link {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+      }
+
+      .nav-link::after {
+        left: 0.15rem;
+        top: 50%;
+        bottom: auto;
+        width: 3px;
+        height: 0;
+        opacity: 0;
+        transform: translateY(-50%);
+        border-radius: 999px;
+      }
+
+      .nav-link:hover::after,
+      .nav-link:focus-visible::after,
+      .nav-link.active::after {
+        left: 0.15rem;
+        top: 50%;
+        width: 3px;
+        height: 1.5rem;
+        opacity: 1;
+        transform: translateY(-50%);
+      }
+    }
+
+    .mobile-menu-toggle {
+      width: 52px;
+      height: 52px;
+      border-radius: 9999px;
+      border: 1px solid rgba(240, 177, 75, 0.8);
+      background: rgba(255,255,255,0.03);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 0 0 rgba(240,177,75,0.2);
+    }
+
+    .mobile-menu-toggle svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.2;
+    }
+
+    .mobile-menu-toggle.is-open {
+      background: rgba(240,177,75,0.14);
+      box-shadow: 0 0 0 6px rgba(240,177,75,0.08);
+      border-color: rgba(240,177,75,1);
+    }
+
+    .contact-panel {
+      background: linear-gradient(180deg, rgba(18,18,18,0.95) 0%, rgba(14,14,14,0.98) 100%);
+      border: 1px solid rgba(240,177,75,0.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f2d39a;
+      margin-bottom: 0.6rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(10,10,10,0.8);
+      color: #f5f1ea;
+      border-radius: 0.9rem;
+      padding: 0.9rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: rgba(240,177,75,0.9);
+      box-shadow: 0 0 0 3px rgba(240,177,75,0.12);
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased">
+  <header class="sticky top-0 z-50 bg-black/90 backdrop-blur-md shadow-sm border-b border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 min-w-0 shrink-0">
+        <img src="chapay.jpeg" alt="Chapay logo" class="h-20 sm:h-24 md:h-28 w-auto max-w-[240px] object-contain rounded-full shadow-sm border border-[#d4a449] bg-[#101010]">
+      </a>
+
+      <nav class="hidden md:flex gap-8 font-medium text-[#d1d1d1]">
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="menu.html" class="nav-link">Menú</a>
+        <a href="cocteles.html" class="nav-link">Cócteles</a>
+        <a href="galeria.html" class="nav-link">Galería</a>
+        <a href="nosotros.html" class="nav-link">Nosotros</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
+      </nav>
+
+      <a href="contacto.html" class="hidden md:inline-flex bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] px-5 py-2.5 rounded-full font-semibold text-sm transition-colors shadow-md hover:shadow-[#f0b14b]/20">Cotizar Ahora</a>
+
+      <button id="mobile-menu-btn" class="mobile-menu-toggle md:hidden text-[#f5f5f5]" aria-label="Abrir menú">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-[#111111] border-b border-[#2a2a2a] px-6 py-4 space-y-3">
+      <a href="servicios.html" class="nav-link block font-medium">Servicios</a>
+      <a href="menu.html" class="nav-link block font-medium">Menú</a>
+      <a href="cocteles.html" class="nav-link block font-medium">Cócteles</a>
+      <a href="galeria.html" class="nav-link block font-medium">Galería</a>
+      <a href="nosotros.html" class="nav-link block font-medium">Nosotros</a>
+      <a href="contacto.html" class="nav-link block font-medium active">Contacto</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <section class="mb-14 text-center max-w-4xl mx-auto">
+      <div class="inline-flex items-center justify-center gap-4 mb-5">
+        <span class="h-px w-16 bg-gradient-to-r from-transparent to-[#f0b14b]"></span>
+        <span class="inline-flex items-center gap-2 text-[#f0b14b] text-sm md:text-base uppercase tracking-[0.25em] font-semibold">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+          Contacto
+        </span>
+        <span class="h-px w-16 bg-gradient-to-l from-transparent to-[#f0b14b]"></span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-none tracking-[-0.05em] mb-5">
+        <span class="inline-block text-[#f5f1ea] italic font-serif">Hablemos</span>
+        <span class="inline-block text-[#f0b14b] italic font-serif ml-3">de tu evento</span>
+      </h1>
+
+      <p class="text-[#d1d1d1] text-lg md:text-xl max-w-2xl mx-auto">Diseñamos experiencias gastronómicas premium para bodas, reuniones corporativas, fiestas privadas y celebraciones especiales.</p>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-[1.1fr_1.4fr] gap-8 items-start">
+      <div class="contact-panel rounded-3xl p-8">
+        <h2 class="text-2xl font-bold text-[#f5f1ea] mb-6">Información de contacto</h2>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-full bg-[#f0b14b]/10 border border-[#f0b14b]/30 flex items-center justify-center text-[#f0b14b]">
+              <i data-lucide="phone"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-[0.12em] text-[#f2d39a] mb-1">WhatsApp</div>
+              <a href="https://wa.me/51973183848" target="_blank" class="text-white hover:text-[#f0b14b] transition-colors">+51 973 183 848</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-full bg-[#f0b14b]/10 border border-[#f0b14b]/30 flex items-center justify-center text-[#f0b14b]">
+              <i data-lucide="mail"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-[0.12em] text-[#f2d39a] mb-1">Correo</div>
+              <a href="mailto:contacto@chapay.pe" class="text-white hover:text-[#f0b14b] transition-colors">contacto@chapay.pe</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-full bg-[#f0b14b]/10 border border-[#f0b14b]/30 flex items-center justify-center text-[#f0b14b]">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-[0.12em] text-[#f2d39a] mb-1">Ubicación</div>
+              <p class="text-white">Huancayo, Perú</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 rounded-2xl border border-[#2a2a2a] bg-[#101010] p-4 text-sm text-[#d1d1d1]">
+          <div class="font-semibold text-[#f5f1ea] mb-1">Horario de atención</div>
+          <p>Lunes a domingo</p>
+          <p>9:00 a.m. - 8:00 p.m.</p>
+        </div>
+      </div>
+
+      <div class="contact-panel rounded-3xl p-8 sm:p-10">
+        <div class="mb-8 text-center sm:text-left">
+          <h2 class="text-3xl font-bold text-[#f5f1ea] mb-2">Solicita tu cotización</h2>
+          <p class="text-[#d1d1d1] text-sm">Completa el formulario y te responderemos con una propuesta personalizada.</p>
+        </div>
+
+        <form id="quote-form" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="field-label">Nombre completo</label>
+              <input type="text" id="name" required class="form-input" />
+            </div>
+            <div>
+              <label class="field-label">Teléfono / WhatsApp</label>
+              <input type="tel" id="phone" required placeholder="+51 999 999 999" class="form-input" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="field-label">Tipo de evento</label>
+              <select id="eventType" required class="form-select">
+                <option value="">Selecciona opción</option>
+                <option value="Corporativo">Corporativo</option>
+                <option value="Boda">Boda / Aniversario</option>
+                <option value="Fiesta Social">Fiesta privada / cumpleaños</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Número de invitados</label>
+              <input type="number" id="guests" min="10" required placeholder="Ej. 50" class="form-input" />
+            </div>
+          </div>
+
+          <div>
+            <label class="field-label">Detalles o requerimientos</label>
+            <textarea id="notes" rows="4" placeholder="Indica fecha, lugar, estilo de servicio o alguna preferencia especial..." class="form-textarea"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-[#f0b14b] hover:bg-[#d99a2c] text-[#111111] font-bold py-4 rounded-xl transition-all shadow-md hover:shadow-[#f0b14b]/20 flex items-center justify-center gap-2">
+            <i data-lucide="send"></i>
+            Enviar cotización por WhatsApp
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#050505] text-[#d1d1d1] py-8 px-6 border-t border-[#2a2a2a]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-sm">
+      <p>© 2026 Chapay • Catering & Banquetería</p>
+      <div class="flex items-center gap-4">
+        <a href="servicios.html" class="hover:text-[#f0b14b]">Servicios</a>
+        <a href="menu.html" class="hover:text-[#f0b14b]">Menú</a>
+        <a href="galeria.html" class="hover:text-[#f0b14b]">Galería</a>
+        <a href="contacto.html" class="hover:text-[#f0b14b]">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/51973183848" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" class="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:scale-105 transition-transform">
+    <i data-lucide="message-circle-more"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
